@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conatct - Blue Guy</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1>Contact us</h1>
+        </div>
+    </header>
+    <nav>
+        <div class="navlinks">
+            <ul>
+                <li><a href="index.html" target="_blank">HOME</a></li>
+                <li><a href="about.html" target="_blank">ABOUT</a></li>
+                <li><a href="contact.html" target="_blank">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <form onsubmit="sendEmail(); reset(); return false">
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Email adress">
+        <input type="text" id="Phone" placeholder="Phone Number">
+        <textarea id="message" cols="20" rows="4" placeholder="Message"></textarea>
+        <button type="submit" id="submit">Send</button>
+    </form>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail();
+        Email.send({
+            Host : "smtp.gmail.com",
+            Username : "zaahiliaaz@gmail.com",
+            Password : "iaaz1234",
+            To : 'zaahiliaaz@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "New Contact Form",
+            Body : "And this is the body"}).then(message => alert(message));
+    </script>
+
+</body>
+</html>
